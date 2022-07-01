@@ -1,10 +1,9 @@
-import datetime
-
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from .validators import validate_year
+
 
 class User(AbstractUser):
     ADMIN = 'admin'
@@ -82,9 +81,10 @@ class Categories(models.Model):
 class Title(models.Model):
 
     name = models.CharField('Заголовок', max_length=200, unique=True)
-    year = models. SmallIntegerField(verbose_name='Дата выхода', 
-                                db_index=True,
-                                validators=[validate_year, ])
+    year = models. SmallIntegerField(
+        verbose_name='Дата выхода',
+        db_index=True,
+        validators=[validate_year, ])
     description = models.TextField('Описание')
     genre = models.ManyToManyField(
         Genres,

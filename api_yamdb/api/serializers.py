@@ -3,10 +3,7 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import get_object_or_404
 from rest_framework.validators import UniqueValidator
-
-from reviews.models import Comment, Review
-from reviews.models import Genres, Categories, Title
-from reviews.models import User
+from reviews.models import Categories, Comment, Genres, Review, Title, User
 
 
 class RegisterDataSerializer(serializers.ModelSerializer):

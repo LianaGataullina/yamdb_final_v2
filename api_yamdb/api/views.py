@@ -4,20 +4,20 @@ from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from rest_framework import filters, permissions, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
-from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.pagination import PageNumberPagination
+from rest_framework.pagination import (LimitOffsetPagination,
+                                       PageNumberPagination)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
+from reviews.models import Categories, Genres, Review, Title, User
 
-from reviews.models import Genres, Categories, Review, Title, User
 from .mixins import ListCreateDestroyViewSet
-from .permissions import (IsAdminModeratorOwnerOrReadOnly,
-                          IsAdmin, IsAdminOrReadOnly)
-from .serializers import (CommentSerializer, ReviewSerializer)
-from .serializers import (UserSerializer, UserEditSerializer,
-                          CategoriesSerializer, TitlesSerializer,
-                          TitlesCreateSerializer, RegisterDataSerializer,
-                          TokenSerializer, GenresSerializer)
+from .permissions import (IsAdmin, IsAdminModeratorOwnerOrReadOnly,
+                          IsAdminOrReadOnly)
+from .serializers import (CategoriesSerializer, CommentSerializer,
+                          GenresSerializer, RegisterDataSerializer,
+                          ReviewSerializer, TitlesCreateSerializer,
+                          TitlesSerializer, TokenSerializer,
+                          UserEditSerializer, UserSerializer)
 
 
 @api_view(["POST"])

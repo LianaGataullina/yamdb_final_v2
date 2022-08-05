@@ -1,13 +1,10 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .views import (GenresViewSet,
-                    CategoriesViewSet,
-                    TitlesViewSet,
-                    CommentViewSet,
-                    ReviewViewSet,
-                    UserViewSet)
-from .views import register, get_jwt_token
+from .views import (CategoriesViewSet, CommentViewSet,
+                    GenresViewSet, ReviewViewSet,
+                    TitlesViewSet, UserViewSet)
+from .views import get_jwt_token, register
 
 app_name = 'api'
 router_v1 = DefaultRouter()
